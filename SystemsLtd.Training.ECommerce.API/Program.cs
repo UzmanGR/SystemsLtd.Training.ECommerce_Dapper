@@ -4,6 +4,7 @@ using SystemsLtd.Training.ECommerce.Repository.Interface;
 using SystemsLtd.Training.ECommerce.Service;
 using SystemsLtd.Training.ECommerce.Service.Interface;
 using Serilog;
+using SystemsLtd.Training.ECommerce.Repository.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.ConfigureCustomExceptionMiddleware();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

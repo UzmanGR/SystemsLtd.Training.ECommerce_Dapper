@@ -30,7 +30,8 @@ namespace SystemsLtd.Training.ECommerce.API.Controllers
         [HttpGet(Name = "GetProducts")]
         public Task<IEnumerable<Product>> GetProducts()
         {
-            return this.ProductService.GetProducts();
+            var res = this.ProductService.GetProducts();
+            throw new AccessViolationException("Violation Exception while accessing the resource.");
         }
 
         [HttpGet(Name = "GetAllProducts")]
